@@ -1,0 +1,59 @@
+##//Contest Code:LRNDSA03 Problem Code:SAVKONO
+### Got a TLE
+C++(14) Gcc 6.3
+### Brute force Way!!!!!!!!!!!!!!!!!!!!
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <bits/stdc++.h>
+#include <iterator>
+
+#define long long int
+using namespace std;
+
+
+bool comp(int a, int b){
+    return(a>b);
+}
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int c;
+    cin>>c;
+    for (int i = 0; i < c; i++)
+    {
+        int n,z;
+        vector <int> power;
+        vector <int> :: iterator it;
+        cin>>n>>z;
+        for (int i =0;i<n;i++){
+            int m;
+            cin>>m;
+            power.push_back(m);
+        }
+        sort(power.begin(),power.end(),comp);
+        int count=1;
+        while(1){
+            int test;
+            test = power[0];
+            z -= test;
+            if(z==0 || z<0){
+                break;
+            }
+            else{
+                count++;
+                test/=2;
+                if(test==0){
+                    power.erase(power.begin());
+                }
+                power[0]=test;
+                sort(power.begin(),power.end(),comp);
+            }
+            
+        }
+        std::cout << count << std::endl;
+        
+        
+    }
+}
